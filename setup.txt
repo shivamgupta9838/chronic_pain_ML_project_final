@@ -1,0 +1,19 @@
+CREATE DATABASE pain_assessment;
+
+cd E:\pain_assessment\backend
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+Copy-Item .env.example .env
+
+.env setup for backend and frontend
+
+flask --app run.py init-db
+
+
+cd E:\pain_assessment\backend
+.\venv\Scripts\Activate.ps1
+python run.py
+
+cd E:\pain_assessment\frontend
+npm run dev
+
