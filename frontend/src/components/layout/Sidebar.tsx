@@ -6,6 +6,7 @@ import {
   LogOut,
   Menu,
   BrainCircuit,
+  FileDown,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,7 @@ interface SidebarProps {
 const navItems = [
   { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { path: '/history', label: 'History', icon: History },
+  { path: '/downloads', label: 'Download Reports', icon: FileDown },
   { path: '/profile', label: 'Profile', icon: User },
 ];
 

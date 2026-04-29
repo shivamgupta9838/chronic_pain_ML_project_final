@@ -13,7 +13,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { TrendingUp, Calendar } from 'lucide-react';
+import { TrendingUp, TrendingDown, Minus, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Register Chart.js components
@@ -150,21 +150,20 @@ export function TrendChart({
   // Calculate trend based on predicted scores
   const calculateTrend = () => {
     if (predictedScores.length < 2) return { direction: 'stable' as const, percentage: 0 };
-    
-    const firstHalf = predictedScores.slice(0, Math.floor(predictedScores.length / 2));
-    const secondHalf = predictedScores.slice(Math.floor(predictedScores.length / 2));
-    
-    const firstAvg = firstHalf.reduce((a, b) => a + b, 0) / firstHalf.length;
-    const secondAvg = secondHalf.reduce((a, b) => a + b, 0) / secondHalf.length;
-    
-    const change = ((secondAvg - firstAvg) / firstAvg) * 100;
-    
-    if (Math.abs(change) < 5) return { direction: 'stable' as const, percentage: Math.abs(Math.round(change)) };
-    if (change > 0) return { direction: 'up' as const, percentage: Math.abs(Math.round(change)) };
-    return { direction: 'down' as const, percentage: Math.abs(Math.round(change)) };
+
+    const firstScore = predictedScores[0];
+    const latestScore = predictedScores[predictedScores.length - 1];
+    const delta = latestScore - firstScore;
+    const percentage = firstScore !== 0 ? Math.abs(Math.round((delta / firstScore) * 100)) : 0;
+
+    if (delta === 0) return { direction: 'stable' as const, percentage };
+    if (delta > 0) return { direction: 'up' as const, percentage };
+    return { direction: 'down' as const, percentage };
   };
 
   const trend = calculateTrend();
+  const TrendIcon =
+    trend.direction === 'down' ? TrendingDown : trend.direction === 'up' ? TrendingUp : Minus;
 
   return (
     <Card className={cn(className)}>
@@ -179,7 +178,7 @@ export function TrendChart({
           
           {/* Trend Indicator */}
           <div className="flex items-center gap-2 px-3 py-1.5 bg-slate-50 rounded-lg">
-            <TrendingUp className={cn(
+            <TrendIcon className={cn(
               "w-4 h-4",
               trend.direction === 'down' ? "text-emerald-500" : 
               trend.direction === 'up' ? "text-rose-500" : "text-slate-500"

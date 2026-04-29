@@ -30,6 +30,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { formatPainScore } from '@/lib/formatPainScore';
 import type { PainReport } from '@/types';
 
 interface ReportTableProps {
@@ -135,7 +136,7 @@ export function ReportTable({
                         variant="outline"
                         className={cn('font-semibold', getPainScoreColor(Math.round(report.painScore)))}
                       >
-                        {report.painScore.toFixed(1)}/10
+                        {formatPainScore(report.painScore)}/10
                       </Badge>
                     ) : (
                       <span className="text-sm text-slate-400">-</span>
@@ -189,7 +190,7 @@ export function ReportTable({
                               <div className="rounded-lg border border-teal-100 bg-teal-50 p-4 text-center">
                                 <p className="mb-1 text-sm text-slate-500">Pain Score</p>
                                 <p className="text-3xl font-bold text-teal-600">
-                                  {report.painScore?.toFixed(1) ?? '-'}
+                                  {formatPainScore(report.painScore)}
                                   {report.painScore !== null ? '/10' : ''}
                                 </p>
                               </div>

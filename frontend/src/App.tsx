@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
-import { Home, Login, Signup, Dashboard, Profile, History } from '@/pages';
+import { Home, Login, Signup, Dashboard, Profile, History, DownloadReports } from '@/pages';
 import { isAuthenticated } from '@/lib/auth';
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -69,6 +69,14 @@ function App() {
           element={
             <ProtectedRoute>
               <History />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/downloads"
+          element={
+            <ProtectedRoute>
+              <DownloadReports />
             </ProtectedRoute>
           }
         />

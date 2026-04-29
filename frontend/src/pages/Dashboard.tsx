@@ -28,6 +28,7 @@ import {
 import { toast } from 'sonner';
 
 import { deleteReport, downloadReport, fetchReports, uploadReport } from '@/lib/api';
+import { formatPainScore } from '@/lib/formatPainScore';
 import type { DashboardStats, PainReport } from '@/types';
 
 function formatShortDate(dateString: string): string {
@@ -209,7 +210,7 @@ export function Dashboard() {
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
         <StatCard
           title="Latest Pain Score"
-          value={stats.latestPainScore ? stats.latestPainScore.toFixed(1) : '-'}
+          value={stats.latestPainScore ? formatPainScore(stats.latestPainScore) : '-'}
           subtitle={stats.latestPainScore ? '/10' : undefined}
           icon={Activity}
           variant="primary"
@@ -259,9 +260,9 @@ export function Dashboard() {
                     <FileText className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-800">Backend Connected</h4>
+                    <h4 className="font-semibold text-slate-800">Data Uploads</h4>
                     <p className="mt-1 text-sm text-slate-600">
-                      CSV uploads are now stored in Flask and persisted in MySQL.
+                      Upload your wearable sensor data (BVP, EDA, accelerometer, temperature) for pain prediction analysis.
                     </p>
                   </div>
                 </div>
