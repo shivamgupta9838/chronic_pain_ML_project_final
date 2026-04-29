@@ -52,22 +52,21 @@ def predict_pain_from_csv(file_path: str) -> dict:
     scaled_features = scaler.transform(processed_df)
     predictions = model.predict(scaled_features)
 
-    average_prediction = float(np.mean(predictions))
     prediction_counts = Counter(int(value) for value in predictions.tolist())
     dominant_prediction = prediction_counts.most_common(1)[0][0]
     actual_average = float(actual_scores.mean()) if actual_scores is not None else None
 
     summary_lines = [
         f"Predicted from {len(predictions)} rows.",
-        f"Average predicted pain score: {average_prediction:.2f}",
         f"Dominant predicted pain class: {dominant_prediction}",
+        f"Prediction counts: {dict(sorted(prediction_counts.items()))}",
     ]
 
     if actual_average is not None:
         summary_lines.append(f"Actual pain_scale average in file: {actual_average:.2f}")
 
     return {
-        "pain_score": average_prediction,
+        "pain_score": dominant_prediction,
         "assessment_result": " | ".join(summary_lines),
         "dominant_prediction": dominant_prediction,
         "prediction_counts": dict(sorted(prediction_counts.items())),

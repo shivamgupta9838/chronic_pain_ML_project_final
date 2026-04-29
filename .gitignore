@@ -4,4 +4,4 @@ backend/storage
 
 frontend/node_modules
 
-prediction model/pain_prediction_model.joblib
+*.joblib
