@@ -356,8 +356,8 @@ export function Home() {
                         <span className="font-bold text-white">JD</span>
                       </div>
                       <div>
-                        <p className="font-semibold text-slate-800">John Doe</p>
-                        <p className="text-sm text-slate-500">john@example.com</p>
+                        <p className="font-semibold text-slate-800">Abhijeet Kumar</p>
+                        <p className="text-sm text-slate-500">abhijeet@example.com</p>
                       </div>
                     </div>
                     <div className="space-y-2">
