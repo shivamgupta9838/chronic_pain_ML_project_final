@@ -4,4 +4,6 @@ backend/storage
 
 frontend/node_modules
 
+app/node_modules
+
 *.joblib

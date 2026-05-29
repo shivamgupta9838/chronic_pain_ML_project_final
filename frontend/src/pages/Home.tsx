@@ -176,14 +176,7 @@ export function Home() {
               </div>
 
               <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500 lg:justify-start">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-teal-500" />
-                  HIPAA Compliant
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-teal-500" />
-                  Bank-level Security
-                </div>
+                
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-teal-500" />
                   Free to Start
@@ -476,7 +469,7 @@ export function Home() {
               { icon: TrendingUp, title: 'Trend Analysis', description: 'Track your pain levels over time with beautiful, easy-to-read charts.', wrapperClass: 'bg-indigo-100', iconClass: 'text-indigo-600' },
               { icon: Shield, title: 'Secure & Private', description: 'Your health data is encrypted and never shared with third parties.', wrapperClass: 'bg-emerald-100', iconClass: 'text-emerald-600' },
               { icon: Clock, title: 'Real-time Processing', description: 'Get pain predictions within seconds of uploading your data.', wrapperClass: 'bg-amber-100', iconClass: 'text-amber-600' },
-              { icon: Lock, title: 'HIPAA Compliant', description: 'Built with healthcare-grade security and compliance standards.', wrapperClass: 'bg-rose-100', iconClass: 'text-rose-600' },
+              // { icon: Lock, title: 'HIPAA Compliant', description: 'Built with healthcare-grade security and compliance standards.', wrapperClass: 'bg-rose-100', iconClass: 'text-rose-600' },
             ].map((feature) => (
               <Card key={feature.title} className="border-0 bg-white shadow-sm transition-shadow hover:shadow-lg">
                 <CardContent className="p-6">
@@ -540,12 +533,12 @@ export function Home() {
               <ul className="space-y-2 text-sm">
                 <li><span className="cursor-pointer hover:text-white">Privacy Policy</span></li>
                 <li><span className="cursor-pointer hover:text-white">Terms of Service</span></li>
-                <li><span className="cursor-pointer hover:text-white">HIPAA Compliance</span></li>
+                {/* <li><span className="cursor-pointer hover:text-white">HIPAA Compliance</span></li> */}
               </ul>
             </div>
           </div>
           <div className="border-t border-slate-800 pt-8 text-center text-sm">
-            © 2024 PainAI. All rights reserved. HIPAA Compliant.
+            © 2024 PainAI. All rights reserved. 
           </div>
         </div>
       </footer>

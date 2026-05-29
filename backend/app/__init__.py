@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from sqlalchemy.exc import OperationalError
 
 from .config import Config
 from .extensions import cors, db, jwt
@@ -14,6 +15,7 @@ def create_app(config_class: type[Config] = Config) -> Flask:
     _register_extensions(app)
     _register_blueprints(app)
     _register_cli_commands(app)
+    _register_error_handlers(app)
     _register_routes(app)
 
     return app
@@ -44,6 +46,17 @@ def _register_cli_commands(app: Flask) -> None:
         with app.app_context():
             db.create_all()
         print("Database tables created.")
+
+
+def _register_error_handlers(app: Flask) -> None:
+    @app.errorhandler(OperationalError)
+    def handle_db_operational_error(error: OperationalError):
+        return jsonify(
+            {
+                "message": "Database connection failed. Ensure the database server is running and the DATABASE_URL is valid.",
+                "detail": str(error),
+            }
+        ), 500
 
 
 def _register_routes(app: Flask) -> None:
