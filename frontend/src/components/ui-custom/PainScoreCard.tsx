@@ -35,8 +35,7 @@ export function PainScoreCard({
   const getScoreLabel = (score: number) => {
     if (score <= 3) return 'Mild';
     if (score <= 6) return 'Moderate';
-    if (score <= 8) return 'Severe';
-    return 'Very Severe';
+    return 'Severe';
   };
 
   const TrendIcon = trendDirection === 'up' ? TrendingUp : trendDirection === 'down' ? TrendingDown : Minus;
@@ -58,7 +57,7 @@ export function PainScoreCard({
           <span className={cn("text-5xl font-bold", getScoreColor(score))}>
             {score}
           </span>
-          <span className="text-lg text-slate-400">/10</span>
+          <span className="text-lg text-slate-400">/8</span>
         </div>
         
         <div className="mt-3 flex items-center gap-2">

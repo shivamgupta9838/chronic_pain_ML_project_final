@@ -101,7 +101,7 @@ export function TrendChart({
         displayColors: true,
         callbacks: {
           label: (context) => {
-            return `${context.dataset.label}: ${context.parsed.y}/10`;
+            return `${context.dataset.label}: ${context.parsed.y}/8`;
           },
         },
       },
@@ -121,7 +121,7 @@ export function TrendChart({
       },
       y: {
         min: 1,
-        max: 10,
+        max: 8,
         grid: {
           color: 'rgba(148, 163, 184, 0.1)',
         },
@@ -136,7 +136,7 @@ export function TrendChart({
         },
         title: {
           display: true,
-          text: 'Pain Score (1-10)',
+          text: 'Pain Score (1-8)',
           font: {
             size: 11,
             family: "'Inter', sans-serif",

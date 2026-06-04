@@ -193,7 +193,7 @@ export function Home() {
                       <div>
                         <p className="text-sm text-slate-500">Predicted Pain Score</p>
                         <p className="text-4xl font-bold text-teal-600">
-                          5.2<span className="text-lg text-slate-400">/10</span>
+                          5.2<span className="text-lg text-slate-400">/8</span>
                         </p>
                       </div>
                       <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-teal-50">
@@ -280,7 +280,7 @@ export function Home() {
                 step: '3',
                 title: 'Get Predictions',
                 description: 'Receive pain level predictions and insights to manage your condition:',
-                items: ['Pain Score (1-10)', 'Trend Analysis', 'Personalized Insights'],
+                items: ['Pain Score (1-8)', 'Trend Analysis', 'Personalized Insights'],
                 iconClass: 'bg-indigo-100 text-indigo-600',
                 stepClass: 'bg-indigo-500',
               },
@@ -428,7 +428,7 @@ export function Home() {
                       <div>
                         <p className="text-sm text-slate-500">Predicted Pain Score</p>
                         <p className="text-3xl font-bold text-indigo-600">
-                          4.8<span className="text-lg text-slate-400">/10</span>
+                          4.8<span className="text-lg text-slate-400">/8</span>
                         </p>
                       </div>
                       <div className="rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700">

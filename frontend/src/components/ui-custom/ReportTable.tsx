@@ -136,7 +136,7 @@ export function ReportTable({
                         variant="outline"
                         className={cn('font-semibold', getPainScoreColor(Math.round(report.painScore)))}
                       >
-                        {formatPainScore(report.painScore)}/10
+                        {formatPainScore(report.painScore)}/8
                       </Badge>
                     ) : (
                       <span className="text-sm text-slate-400">-</span>
@@ -191,7 +191,7 @@ export function ReportTable({
                                 <p className="mb-1 text-sm text-slate-500">Pain Score</p>
                                 <p className="text-3xl font-bold text-teal-600">
                                   {formatPainScore(report.painScore)}
-                                  {report.painScore !== null ? '/10' : ''}
+                                  {report.painScore !== null ? '/8' : ''}
                                 </p>
                               </div>
                               <div className="rounded-lg bg-slate-50 p-4 text-center">

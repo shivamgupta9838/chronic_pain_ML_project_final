@@ -211,7 +211,7 @@ export function Dashboard() {
         <StatCard
           title="Latest Pain Score"
           value={stats.latestPainScore ? formatPainScore(stats.latestPainScore) : '-'}
-          subtitle={stats.latestPainScore ? '/10' : undefined}
+          subtitle={stats.latestPainScore ? '/8' : undefined}
           icon={Activity}
           variant="primary"
           trend={{ value: stats.trendPercentage, label: 'vs previous report', direction: stats.trendDirection }}
@@ -220,7 +220,7 @@ export function Dashboard() {
         <StatCard
           title="Average Score"
           value={stats.averagePainScore ? stats.averagePainScore.toFixed(1) : '-'}
-          subtitle={stats.averagePainScore ? '/10' : undefined}
+          subtitle={stats.averagePainScore ? '/8' : undefined}
           icon={TrendingUp}
           variant="default"
           trend={{ value: stats.trendPercentage, label: 'report trend', direction: stats.trendDirection }}

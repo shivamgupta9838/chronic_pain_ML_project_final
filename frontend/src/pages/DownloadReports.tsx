@@ -228,7 +228,7 @@ export function DownloadReports() {
 
                   <div className="flex flex-wrap items-center gap-2">
                     <Badge variant="outline" className={getScoreVariant(report.painScore)}>
-                      {report.painScore !== null ? `${formatPainScore(report.painScore)}/10` : 'No score'}
+                      {report.painScore !== null ? `${formatPainScore(report.painScore)}/8` : 'No score'}
                     </Badge>
                     <Button
                       variant="outline"
@@ -258,7 +258,7 @@ export function DownloadReports() {
                     {formatPainScore(report.painScore)}
                   </p>
                   <p className="mt-1 text-sm text-slate-500">
-                    {report.painScore !== null ? 'Predicted pain score out of 10' : 'No prediction stored'}
+                    {report.painScore !== null ? 'Predicted pain score out of 8' : 'No prediction stored'}
                   </p>
                 </div>
 

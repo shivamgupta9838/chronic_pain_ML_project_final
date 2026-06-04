@@ -250,7 +250,7 @@ export function downloadSingleReportPdf(report: PainReport, allReports: PainRepo
     { text: 'Upload Summary', size: 14, bold: true, gapAfter: 4 },
     { text: `Source file: ${report.fileName}`, bold: true },
     { text: `Uploaded at: ${formatDate(report.uploadedAt)}` },
-    { text: `Predicted pain score: ${report.painScore !== null ? `${formatPainScore(report.painScore)}/10` : 'Unavailable'}` },
+    { text: `Predicted pain score: ${report.painScore !== null ? `${formatPainScore(report.painScore)}/8` : 'Unavailable'}` },
     { text: `Severity band: ${getSeverityLabel(report.painScore)}` },
     { text: `Patient upload count: ${allReports.length}` },
     { text: `Patient average score: ${averageScore}`, gapAfter: 8 },
@@ -273,7 +273,7 @@ export function downloadSingleReportPdf(report: PainReport, allReports: PainRepo
     },
     { text: 'History Snapshot', size: 14, bold: true, gapAfter: 4 },
     ...allReports.slice(0, 10).map((item, index) => ({
-      text: `${index + 1}. ${formatDate(item.uploadedAt)} | ${item.fileName} | ${item.painScore !== null ? `${formatPainScore(item.painScore)}/10` : 'No score'}`,
+      text: `${index + 1}. ${formatDate(item.uploadedAt)} | ${item.fileName} | ${item.painScore !== null ? `${formatPainScore(item.painScore)}/8` : 'No score'}`,
       indent: 58,
     })),
   ];
@@ -308,7 +308,7 @@ export function downloadAllReportsPdf(reports: PainReport[], user: User | null):
     lines.push({ text: `${index + 1}. ${report.fileName}`, size: 12, bold: true, gapAfter: 2 });
     lines.push({ text: `Uploaded at: ${formatDate(report.uploadedAt)}`, indent: 58 });
     lines.push({
-      text: `Predicted pain score: ${report.painScore !== null ? `${formatPainScore(report.painScore)}/10` : 'Unavailable'}`,
+      text: `Predicted pain score: ${report.painScore !== null ? `${formatPainScore(report.painScore)}/8` : 'Unavailable'}`,
       indent: 58,
     });
     lines.push({ text: `Severity band: ${getSeverityLabel(report.painScore)}`, indent: 58 });
